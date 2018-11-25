@@ -552,7 +552,12 @@ class AvatarEditor extends React.Component {
     context.save()
     context.scale(pixelRatio, pixelRatio)
     context.translate(0, 0)
-    context.fillStyle = 'rgba(' + this.props.color.slice(0, 4).join(',') + ')'
+    const grad = context.createLinearGradient(0,290,290,0);
+
+    grad.addColorStop(0, 'rgba(252,75,68,1)');
+    grad.addColorStop(1, 'rgba(254,169,54,1)');
+
+    context.fillStyle = grad;
 
     let borderRadius = this.props.borderRadius
     const dimensions = this.getDimensions()
